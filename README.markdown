@@ -148,21 +148,21 @@ Key files and directories:
 - [Blog Post Tutorial](#) *(Link to your blog post)*
 - [YouTube Tutorial](#) *(Link to your YouTube video)*
 
-<!-- ## Contributing
+## Contributing
 Contributions are welcome! To contribute:
 1. Fork the repository.
 2. Create a feature branch (`git checkout -b feature/your-feature`).
 3. Commit changes (`git commit -m 'Add your feature'`).
 4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a Pull Request. -->
+5. Open a Pull Request.
 
-<!-- ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. -->
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 For questions or feedback, reach out via:
-- GitHub Issues: [Open an issue](https://github.com/prashant523580/esewa-payment-nextjs/issues)
-- Email: prashant.thapa14719@gmail.com
+- GitHub Issues: [Open an issue](https://github.com/your-username/esewa-nextjs-payment/issues)
+- Email: your-email@example.com
 - YouTube: [Your Channel Name](#)
 - Website: [Your Website](#)
 
