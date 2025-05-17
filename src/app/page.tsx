@@ -1,9 +1,9 @@
-import EsewaPayment from '@/components/EsewaPayment'
+import PaymentForm from '@/components/PaymentForm'
 import React from 'react'
 
 function page() {
   return (
-    <EsewaPayment/>
+    <PaymentForm/>
   )
 }
 

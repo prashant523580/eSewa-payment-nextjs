@@ -20,8 +20,8 @@ Before setting up the project, ensure you have:
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/esewa-nextjs-payment.git
-   cd esewa-nextjs-payment
+   git clone https://github.com/prashant523580/eSewa-payment-nextjs.git
+   cd esewa-payment-nextjs
    ```
 
 2. **Install Dependencies**:
@@ -36,6 +36,7 @@ Before setting up the project, ensure you have:
    ESEWA_MERCHANT_ID=your_merchant_id
    ESEWA_SECRET_KEY=your_secret_key
    AUTH_URL=http://localhost:3000
+   BASE_URL=https://rc-epay.esewa.com.np
    ```
    - Replace `your_merchant_id` and `your_secret_key` with credentials from eSewa.
    - Update `AUTH_URL` to your production URL when deploying.
@@ -72,7 +73,7 @@ Key files and directories:
    - Obtain sandbox credentials from eSewa’s developer portal.
 
 ## Code Overview
-### Frontend (`EsewaPayment.tsx`)
+### Frontend (`PaymentForm.tsx`)
 - **Purpose**: Collects user input and initiates payment.
 - **Key Features**:
   - Uses `useState` for form state management.
@@ -145,8 +146,7 @@ Key files and directories:
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Lucide Icons](https://lucide.dev/)
-- [Blog Post Tutorial](#) *(Link to your blog post)*
-- [YouTube Tutorial](#) *(Link to your YouTube video)*
+- [YouTube Tutorial](#) *https://youtu.be/2rJrN4R5Zb4*
 
 <!-- ## Contributing
 Contributions are welcome! To contribute:
@@ -163,7 +163,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions or feedback, reach out via:
 - GitHub Issues: [Open an issue](https://github.com/prashant523580/esewa-payment-nextjs/issues)
 - Email: prashant.thapa14719@gmail.com
-- YouTube: [Your Channel Name](#)
-- Website: [Your Website](#)
+- YouTube: [Code Paila](#)*https://www.youtube.com/@CodePaila*
 
 Happy coding, and thank you for using this eSewa payment integration project!

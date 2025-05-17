@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 // app/api/payment/initiate/route.ts
 
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from 'uuid';
-import CryptoJS from "crypto-js";
+import {  generateEsewaSignature } from "@/lib/esewa/verifySignature";
 
 export async function POST(req: Request) {
   try {
@@ -30,7 +31,6 @@ export async function POST(req: Request) {
     const taxAmount = Number((baseAmount * 0.13).toFixed(2));
     const totalAmount = Number((baseAmount + taxAmount).toFixed(2));
 
-  
     // Generate signature
     const transactionUuid = uuidv4();
     const message = [
@@ -39,13 +39,10 @@ export async function POST(req: Request) {
       `product_code=${process.env.ESEWA_MERCHANT_ID}`
     ].join(',');
 
-    const signature = CryptoJS.HmacSHA256(
-      message,
-      process.env.ESEWA_SECRET_KEY!
-    ).toString(CryptoJS.enc.Base64);
+    const signature = generateEsewaSignature(message);
 
     return NextResponse.json({
-      paymentUrl: 'https://rc-epay.esewa.com.np/api/epay/main/v2/form',
+      paymentUrl: `${process.env.ESEWA_BASE_URL}/api/epay/main/v2/form`,
       params: {
         amount: baseAmount.toFixed(2),
         tax_amount: taxAmount.toFixed(2),
@@ -55,12 +52,12 @@ export async function POST(req: Request) {
         transaction_uuid: transactionUuid,
         product_code: process.env.ESEWA_MERCHANT_ID!,
         signature,
-        success_url: `${process.env.AUTH_URL}/success`,
-        failure_url: `${process.env.AUTH_URL}/failure`,
+        success_url: `${process.env.NEXT_PUBLIC_URL}/success`,
+        failure_url: `${process.env.NEXT_PUBLIC_URL}/failure`,
         signed_field_names: 'total_amount,transaction_uuid,product_code'
       }
     });
-
+    
   } catch (error: any) {
     console.error("Payment error:", error);
     return NextResponse.json(

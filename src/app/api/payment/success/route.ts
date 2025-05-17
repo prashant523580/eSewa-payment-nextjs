@@ -1,7 +1,7 @@
 // app/api/payment/success/route.ts
+import { generateEsewaSignature } from '@/lib/esewa/verifySignature';
 import { NextRequest, NextResponse } from 'next/server';
 
-import CryptoJS from "crypto-js";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,11 +16,11 @@ export async function POST(req: NextRequest) {
 
     // Validate required parameters
     if (!donationId || !transactionUuid || !totalAmount || !productCode || !receivedSignature) {
-      return NextResponse.redirect(`${process.env.AUTH_URL}/failure`);
+      return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/failure`);
     }
 
     // Verify with eSewa API
-    const verificationResponse = await fetch('https://rc-epay.esewa.com.np/api/epay/main/v2/verify', {
+    const verificationResponse = await fetch(`${process.env.ESEWA_BASE_URL}/api/epay/main/v2/verify`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,21 +43,15 @@ export async function POST(req: NextRequest) {
       `product_code=${process.env.ESEWA_MERCHANT_ID}`
     ].join(',');
 
-    const validSignature = CryptoJS.HmacSHA256(
-      signatureMessage,
-      process.env.ESEWA_SECRET_KEY!
-    ).toString(CryptoJS.enc.Base64);
-
+ 
+    const validSignature = generateEsewaSignature(signatureMessage)
+    
     if (validSignature !== receivedSignature.toString()) {
       throw new Error('Invalid signature');
     }
-
-  
-
-    return NextResponse.redirect(`${process.env.AUTH_URL}/success`);
-
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/success`);
   } catch (error) {
     console.error('Payment verification error:', error);
-    return NextResponse.redirect(`${process.env.AUTH_URL}/failure`);
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/failure`);
   }
 }

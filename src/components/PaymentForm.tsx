@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+// /src/components/EsewaPAyment.tsx
 "use client";
 import { useState } from "react";
-// import { X } from "lucide-react";
 import Image from "next/image";
 
 export default function EsewaPayment() {
-  const [show, setShow] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -76,30 +76,9 @@ export default function EsewaPayment() {
   };
 
   return (
-    <div className="relative">
-      <div className="donation-btns flex flex-col space-y-2 justify-center items-center">
-
-        <button
-          onClick={() => {
-            setShow(true);
-          }}
-          className="flex items-center  cursor-pointer mt-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-        >
-
-          <span>Pay Via Esewa </span>
-        </button>
-      </div>
-      {show && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full relative">
-            <button
-              onClick={() => setShow(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              X
-            </button>
-
-            <h2 className="text-2xl font-bold mb-4">Donation Form</h2>
+        <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full relative drop-shadow-2xl">
+            <h2 className="text-2xl font-bold mb-4">Esewa Payment Form</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -154,7 +133,7 @@ export default function EsewaPayment() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full text-white py-2 rounded-md flex items-center justify-center gap-2 ${isSubmitting ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'
+                className={`w-full text-white py-2 rounded-md flex items-center justify-center gap-2 ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 cursor-pointer'
                   }`}
               >
                 {isSubmitting ? (
@@ -175,7 +154,5 @@ export default function EsewaPayment() {
             </form>
           </div>
         </div>
-      )}
-    </div>
   );
 }
