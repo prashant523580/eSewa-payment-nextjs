@@ -146,7 +146,7 @@ Key files and directories:
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Lucide Icons](https://lucide.dev/)
-- [YouTube Tutorial](#) *https://youtu.be/2rJrN4R5Zb4*
+- [YouTube Tutorial](https://youtu.be/2rJrN4R5Zb4) 
 
 <!-- ## Contributing
 Contributions are welcome! To contribute:
@@ -163,6 +163,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions or feedback, reach out via:
 - GitHub Issues: [Open an issue](https://github.com/prashant523580/esewa-payment-nextjs/issues)
 - Email: prashant.thapa14719@gmail.com
-- YouTube: [Code Paila](#)*https://www.youtube.com/@CodePaila*
+- YouTube: [Code Paila](https://www.youtube.com/@CodePaila)
 
 Happy coding, and thank you for using this eSewa payment integration project!
